@@ -18,7 +18,7 @@ function Home2() {
         setSelectedOption(option);
 
         try {
-            const response = await axios.post("http://localhost:5000/api/option", {
+            const response = await axios.post("https://praneeth-task.onrender.com/api/option", {
                 selectedOption: option,
             });
             console.log("Response from backend:", response.data);

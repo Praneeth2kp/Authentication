@@ -15,10 +15,10 @@ function Login() {
 
     const navigate = useNavigate();
     const handleGitHubSignUp = () => {
-        window.location.href = 'http://localhost:5000/api/auth/github';
+        window.location.href = 'https://praneeth-task.onrender.com/api/auth/github';
     };
     const handleGoogleSignUp = () => {
-        window.location.href = 'http://localhost:5000/auth/google/callback';
+        window.location.href = 'https://praneeth-task.onrender.com/auth/google/callback';
     }
 
     const [loginStatus, setLoginStatus] = useState("");
@@ -27,7 +27,7 @@ function Login() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/login', formData);
+            const response = await axios.post('https://praneeth-task.onrender.com/api/login', formData);
             if (response.data.success) {
                 setLoginStatus("Login successful!");
                 navigate('/home1', { state: { fname: formData.fname } });

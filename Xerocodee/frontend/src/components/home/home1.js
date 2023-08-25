@@ -34,7 +34,7 @@ function Home1() {
         endpoint = "api/company";
       }
 
-      const response = await axios.post(`http://localhost:5000/${endpoint}`, formData);
+      const response = await axios.post(`https://praneeth-task.onrender.com/${endpoint}`, formData);
       setMessage(`${selectedOption} data saved successfully!!`);
       console.log('Response from backend:', response.data);
       setFormData({
