@@ -97,7 +97,7 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "https://64e8d37be5e53c0e95cb6d89--dynamic-pastelito-f55836.netlify.app/home1",
+    callbackURL: "https://authentication-praneeth.vercel.app/home1",
     scope: ['profile', 'email'],
 },
     async (accessToken, refreshToken, profile, cb) => {
@@ -129,10 +129,10 @@ app.get('/api/auth/github', passport.authenticate('github', { scope: ['profile',
 app.get('/api/auth/github/callback',
     passport.authenticate("github", (err, token) => {
         if (err) {
-            return res.redirect("https://64e8d37be5e53c0e95cb6d89--dynamic-pastelito-f55836.netlify.app/signin");
+            return res.redirect("https://authentication-praneeth.vercel.app/signin");
         }
 
-        res.redirect(`https://64e8d37be5e53c0e95cb6d89--dynamic-pastelito-f55836.netlify.app/home1`);
+        res.redirect(`https://authentication-praneeth.vercel.app/home1`);
     })
 );
 
@@ -173,9 +173,9 @@ app.get('/auth/google/callback',
     (req, res, next) => {
         passport.authenticate('google', (err, token) => {
             if (err) {
-                return res.redirect("https://64e8d37be5e53c0e95cb6d89--dynamic-pastelito-f55836.netlify.app/signup");
+                return res.redirect("https://authentication-praneeth.vercel.app/signup");
             }
-            res.redirect(`https://64e8d37be5e53c0e95cb6d89--dynamic-pastelito-f55836.netlify.app/home1`);
+            res.redirect(`https://authentication-praneeth.vercel.app/home1`);
         })(req, res, next);
     }
 );
