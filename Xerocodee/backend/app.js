@@ -17,7 +17,6 @@ const PORT = 5000
 database();
 app.use(cors())
 app.use(express.json());
-
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -27,7 +26,6 @@ app.use(session({
     }
 }));
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -36,7 +34,6 @@ app.use((req, res, next) => {
     req.session.touch();
     next();
 });
-
 
 const verifyAccessToken = (req, res, next) => {
     const token = req.headers.authorization;
@@ -53,8 +50,6 @@ const verifyAccessToken = (req, res, next) => {
         return res.status(401).json({ message: 'Invalid access token' });
     }
 };
-
-
 
 app.post('/api/signup', async (req, res) => {
     try {
@@ -97,13 +92,12 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
-
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/home1",
+    callbackURL: "https://64e8cd2cb05a0f09368880b4--rad-daffodil-c0c008.netlify.app/home1",
     scope: ['profile', 'email'],
 },
     async (accessToken, refreshToken, profile, cb) => {
@@ -129,18 +123,16 @@ passport.use(new GitHubStrategy({
             return cb(error, false);
         }
     }
-
-
 ));
 
 app.get('/api/auth/github', passport.authenticate('github', { scope: ['profile', 'email'] }));
 app.get('/api/auth/github/callback',
     passport.authenticate("github", (err, token) => {
         if (err) {
-            return res.redirect("http://localhost:3000/signin");
+            return res.redirect("https://64e8cd2cb05a0f09368880b4--rad-daffodil-c0c008.netlify.app/signin");
         }
 
-        res.redirect(`http://localhost:3000/home1`);
+        res.redirect(`https://64e8cd2cb05a0f09368880b4--rad-daffodil-c0c008.netlify.app/home1`);
     })
 );
 
@@ -181,9 +173,9 @@ app.get('/auth/google/callback',
     (req, res, next) => {
         passport.authenticate('google', (err, token) => {
             if (err) {
-                return res.redirect("http://localhost:3000/signup");
+                return res.redirect("https://64e8cd2cb05a0f09368880b4--rad-daffodil-c0c008.netlify.app/signup");
             }
-            res.redirect(`http://localhost:3000/home1`);
+            res.redirect(`https://64e8cd2cb05a0f09368880b4--rad-daffodil-c0c008.netlify.app/home1`);
         })(req, res, next);
     }
 );
