@@ -61,7 +61,7 @@ function Home1() {
   return (
     <div className="container">
       <div className="screen-box">
-        <img className="logo1" src={logo}></img>
+        <img className="logo1" src={logo} alt="logo"></img>
         <h1 className="hh1">Welcome {userName}!</h1>
         <p className="pp1">Choose from the following</p>
         <div className="btn-box">
@@ -73,7 +73,7 @@ function Home1() {
               backgroundColor:
                 selectedOption === "Developer" ? "#1F64FF" : "initial",
               color:
-                selectedOption == "Developer" ? "white" : "initial"
+                selectedOption === "Developer" ? "white" : "initial"
             }}
           >
             Developer
@@ -86,7 +86,7 @@ function Home1() {
               backgroundColor:
                 selectedOption === "Organisation" ? "#1F64FF" : "initial",
               color:
-                selectedOption == "Organisation" ? "white" : "initial"
+                selectedOption === "Organisation" ? "white" : "initial"
             }}
           >
             Organisation
@@ -99,7 +99,7 @@ function Home1() {
               backgroundColor:
                 selectedOption === "Company" ? "#1F64FF" : "initial",
               color:
-                selectedOption == "Company" ? "white" : "initial"
+                selectedOption === "Company" ? "white" : "initial"
             }}
           >
             Company
