@@ -173,7 +173,7 @@ app.get('/auth/google/callback',
     (req, res, next) => {
         passport.authenticate('google', (err, token) => {
             if (err) {
-                return res.redirect("https://authentication-praneeth.vercel.app/signup");
+                return res.redirect("https://authentication-praneeth.vercel.app");
             }
             res.redirect(`https://authentication-praneeth.vercel.app/home1`);
         })(req, res, next);
