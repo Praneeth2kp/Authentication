@@ -1,4 +1,4 @@
- # XAuthentication
+ # Authentication
 
 This is a full-stack web application that allows users to sign up, login, and search for GitHub repositories. The application is built using React, Node.js, Express, and MongoDB.
 
